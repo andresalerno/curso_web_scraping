@@ -19,6 +19,9 @@ html <- content(req)
 # passo 3.1: chutar seletores (xpath ou css)
 
 # primeiro chute: //*[@id="results"]/table/tbody/tr[1]/td[2]/div/a (está errado)
+# //*[@id="results"]/table/tbody/tr[1]
+# //*[@id="results"]/table/tbody/tr[1]/td[1]/div/a
+
 
 # opcao 1: seguindo o chrome
 xml_find_all(html, "//*[@id='results']/table/tr/td/div/a")
@@ -52,7 +55,7 @@ imagens <- xml_attr(tags_img, "src")
 
 # quinto passo: montar o data.frame
 
-data.frame(
+df <- data.frame(
   coluna_link = links_completo,
   coluna_nome_pais = textos,
   coluna_imagens = imagens
